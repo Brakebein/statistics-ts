@@ -9,8 +9,10 @@
 		"url": "https://github.com/pieterprovoost/jerzy"
 	},
 	"devDependencies": {
-		"mocha": "*",
 		"chai": "*",
+		"mocha": "*",
+		"tslint": "^5.20.0",
+		"typescript": "^3.6.4",
 		"webmake": "*"
 	},
 	"scripts": {

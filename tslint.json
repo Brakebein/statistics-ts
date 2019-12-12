@@ -1,0 +1,9 @@
+{
+  "extends": "tslint:recommended",
+  "rules": {
+    "arrow-parens": false,
+    "member-access": [true, "no-public"],
+    "quotemark": [true, "single"],
+    "trailing-comma": false
+  }
+}
