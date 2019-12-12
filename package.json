@@ -1,9 +1,10 @@
 {
 	"name": "jerzy",
-	"version": "0.2.1",
+	"version": "0.3.0",
 	"author": "Pieter Provoost <pieterprovoost@gmail.com>",
 	"license": "MIT",
-	"main": "./jerzy.js",
+	"main": "./dist/umd/index.js",
+	"module": "./dist/es/index.js",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/pieterprovoost/jerzy"
@@ -16,6 +17,7 @@
 		"webmake": "*"
 	},
 	"scripts": {
+		"build": "npx tsc --module umd --outDir ./dist/umd && npx tsc --module esnext --outDir ./dist/es",
 		"test": "./node_modules/.bin/mocha",
 		"webmake": "./node_modules/.bin/webmake jerzy.js browser.js"
 	}
