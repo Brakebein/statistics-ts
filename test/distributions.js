@@ -1,6 +1,6 @@
 describe('jerzy.Normal', function() {
-	var n = new jerzy.Normal(0, 1);
-	var n2 = new jerzy.Normal(1.2, 1.8);
+	var n = new jerzy.NormalDistribution(0, 1);
+	var n2 = new jerzy.NormalDistribution(1.2, 1.8);
 	describe("#dens", function() {
 		it("should return the correct value", function() {
 			assert.closeTo(n.dens(0), 0.3989423, 0.0000001);
@@ -32,8 +32,8 @@ describe('jerzy.Normal', function() {
 });
 
 describe('jerzy.T', function() {
-	var t = new jerzy.T(100);
-	var t1 = new jerzy.T(1);
+	var t = new jerzy.TDistribution(100);
+	var t1 = new jerzy.TDistribution(1);
 	describe("#dens", function() {
 		it("should return the correct value", function() {
 			assert.closeTo(t.dens(-5), 0.000005080, 0.000000001);
@@ -64,7 +64,7 @@ describe('jerzy.T', function() {
 });
 
 describe('jerzy.Kolmogorov', function() {
-	var k = new jerzy.Kolmogorov();
+	var k = new jerzy.KolmogorovDistribution();
 	describe("#distr", function() {
 		it("should return the correct value", function() {
 			assert.closeTo(k.distr(1), 0.73, 0.01);

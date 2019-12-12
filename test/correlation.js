@@ -4,7 +4,7 @@ describe('jerzy.Correlation', function() {
 	var p = jerzy.Correlation.pearson(g, h);
 	describe("#pearson", function() {
 		it("should return the correct values", function() {
-			assert.closeTo(p.r, 0.5192801, 0000001);
+			assert.closeTo(p.r, 0.5192801, 0.000001);
 			assert.closeTo(p.df, 29, 1);
 			assert.closeTo(p.t, 3.2722, 0.0001);
 			assert.closeTo(p.p, 0.002758, 0.000001);
