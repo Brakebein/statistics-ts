@@ -6,8 +6,8 @@
 		"Brakebein"
 	],
 	"license": "MIT",
-	"main": "./dist/umd/index.js",
-	"module": "./dist/es/index.js",
+	"main": "dist/index.js",
+	"types": "types/index.d.ts",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/Brakebein/statistics-ts"

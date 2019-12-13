@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/umd",
+    "outDir": "./dist",
     "module": "umd",
     "moduleResolution": "node",
     "target": "es5",
     "declaration": true,
+    "declarationDir": "./types",
     "sourceMap": false,
     "lib": [
       "es2018"
