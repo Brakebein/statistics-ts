@@ -1,3 +1,4 @@
+"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -11,30 +12,19 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-(function (factory) {
-    if (typeof module === "object" && typeof module.exports === "object") {
-        var v = factory(require, exports);
-        if (v !== undefined) module.exports = v;
-    }
-    else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./vector"], factory);
-    }
-})(function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    var vector_1 = require("./vector");
-    var Sequence = /** @class */ (function (_super) {
-        __extends(Sequence, _super);
-        function Sequence(min, max, step) {
-            var _this = this;
-            var elements = [];
-            for (var i = min; i <= max; i += step) {
-                elements.push(i);
-            }
-            _this = _super.call(this, elements) || this;
-            return _this;
+Object.defineProperty(exports, "__esModule", { value: true });
+var vector_1 = require("./vector");
+var Sequence = /** @class */ (function (_super) {
+    __extends(Sequence, _super);
+    function Sequence(min, max, step) {
+        var _this = this;
+        var elements = [];
+        for (var i = min; i <= max; i += step) {
+            elements.push(i);
         }
-        return Sequence;
-    }(vector_1.Vector));
-    exports.Sequence = Sequence;
-});
+        _this = _super.call(this, elements) || this;
+        return _this;
+    }
+    return Sequence;
+}(vector_1.Vector));
+exports.Sequence = Sequence;

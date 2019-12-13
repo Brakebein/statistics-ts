@@ -1,3 +1,4 @@
+"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -11,27 +12,16 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-(function (factory) {
-    if (typeof module === "object" && typeof module.exports === "object") {
-        var v = factory(require, exports);
-        if (v !== undefined) module.exports = v;
+Object.defineProperty(exports, "__esModule", { value: true });
+var normal_1 = require("./normal");
+/**
+ * Standard Normal Distribution
+ */
+var StandardNormalDistribution = /** @class */ (function (_super) {
+    __extends(StandardNormalDistribution, _super);
+    function StandardNormalDistribution() {
+        return _super.call(this, 0, 1) || this;
     }
-    else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./normal"], factory);
-    }
-})(function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    var normal_1 = require("./normal");
-    /**
-     * Standard Normal Distribution
-     */
-    var StandardNormalDistribution = /** @class */ (function (_super) {
-        __extends(StandardNormalDistribution, _super);
-        function StandardNormalDistribution() {
-            return _super.call(this, 0, 1) || this;
-        }
-        return StandardNormalDistribution;
-    }(normal_1.NormalDistribution));
-    exports.StandardNormalDistribution = StandardNormalDistribution;
-});
+    return StandardNormalDistribution;
+}(normal_1.NormalDistribution));
+exports.StandardNormalDistribution = StandardNormalDistribution;
