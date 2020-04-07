@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var decimal_js_1 = require("decimal.js");
 var numeric_1 = require("./numeric");
 var Misc = /** @class */ (function () {
     function Misc() {
@@ -35,18 +36,26 @@ var Misc = /** @class */ (function () {
         ];
         var g = 7;
         if (n < 0.5) {
-            return Math.PI / Math.sin(Math.PI * n) * this.gamma(1 - n);
+            return new decimal_js_1.Decimal(Math.PI / Math.sin(Math.PI * n)).mul(Misc.gamma(1 - n));
+            // return Math.PI / Math.sin(Math.PI * n) * this.gamma(1 - n);
         }
         n -= 1;
         var t = n + g + 0.5;
-        var a = p.reduce(function (acc, currentValue, index) { return acc + currentValue / (n + index); });
-        return Math.sqrt(2 * Math.PI) * Math.pow(t, n + 0.5) * Math.exp(-t) * a;
+        var a = p[0];
+        for (var i = 1; i < p.length; i++) {
+            a += p[i] / (n + i);
+        }
+        var powN = new decimal_js_1.Decimal(t).pow(n + 0.5);
+        var powE = new decimal_js_1.Decimal(Math.E).pow(-t);
+        return new decimal_js_1.Decimal(Math.sqrt(2 * Math.PI)).mul(powN).mul(powE).mul(a);
+        // return Math.sqrt(2 * Math.PI) * Math.pow(t, n + 0.5) * Math.exp(-t) * a;
     };
     /**
      * beta function
      */
     Misc.beta = function (x, y) {
-        return Misc.gamma(x) * Misc.gamma(y) / Misc.gamma(x + y);
+        // return Misc.gamma(x) * Misc.gamma(y) / Misc.gamma(x + y);
+        return Misc.gamma(x).mul(Misc.gamma(y)).div(Misc.gamma(x + y)).toNumber();
     };
     /**
      * incomplete beta function

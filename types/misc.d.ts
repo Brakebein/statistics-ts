@@ -1,3 +1,4 @@
+import { Decimal } from 'decimal.js';
 export declare class Misc {
     /**
      * error function
@@ -6,7 +7,7 @@ export declare class Misc {
     /**
      * gamma function
      */
-    static gamma(n: number): number;
+    static gamma(n: number): Decimal;
     /**
      * beta function
      */

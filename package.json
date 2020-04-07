@@ -23,5 +23,8 @@
 		"build": "npx tsc --module umd --outDir ./dist/umd && npx tsc --module esnext --outDir ./dist/es",
 		"test": "./node_modules/.bin/mocha",
 		"webmake": "./node_modules/.bin/webmake dist/umd/index.js browser2.js"
+	},
+	"dependencies": {
+		"decimal.js": "^10.2.0"
 	}
 }

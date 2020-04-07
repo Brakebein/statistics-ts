@@ -14,8 +14,12 @@ export class TDistribution {
   }
 
   _de(x: number): number {
-    return (Misc.gamma((this.df + 1) / 2) / (Math.sqrt(this.df * Math.PI) * Misc.gamma(this.df / 2)))
+    const gamma1 = Misc.gamma((this.df + 1) / 2);
+    const gamma2 = Misc.gamma(this.df / 2);
+    return (gamma1.div(gamma2.mul(Math.sqrt(this.df * Math.PI))).toNumber())
       * Math.pow((1 + Math.pow(x, 2) / this.df), -(this.df + 1) / 2);
+
+    // return (Misc.gamma((this.df + 1) / 2) / (Math.sqrt(this.df * Math.PI) * Misc.gamma(this.df / 2)))
   }
 
   _di(x: number): number {

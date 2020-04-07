@@ -11,8 +11,11 @@ var TDistribution = /** @class */ (function () {
         this.df = df;
     }
     TDistribution.prototype._de = function (x) {
-        return (misc_1.Misc.gamma((this.df + 1) / 2) / (Math.sqrt(this.df * Math.PI) * misc_1.Misc.gamma(this.df / 2)))
+        var gamma1 = misc_1.Misc.gamma((this.df + 1) / 2);
+        var gamma2 = misc_1.Misc.gamma(this.df / 2);
+        return (gamma1.div(gamma2.mul(Math.sqrt(this.df * Math.PI))).toNumber())
             * Math.pow((1 + Math.pow(x, 2) / this.df), -(this.df + 1) / 2);
+        // return (Misc.gamma((this.df + 1) / 2) / (Math.sqrt(this.df * Math.PI) * Misc.gamma(this.df / 2)))
     };
     TDistribution.prototype._di = function (x) {
         if (x < 0) {

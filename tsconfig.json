@@ -6,6 +6,7 @@
     "target": "es5",
     "declaration": true,
     "declarationDir": "./types",
+    "removeComments": false,
     "sourceMap": false,
     "lib": [
       "es2018"

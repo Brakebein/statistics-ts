@@ -1,3 +1,4 @@
+import {Decimal} from 'decimal.js';
 import {Numeric} from './numeric';
 
 export class Misc {
@@ -20,7 +21,7 @@ export class Misc {
   /**
    * gamma function
    */
-  static gamma(n: number): number {
+  static gamma(n: number): Decimal {
     const p = [
       0.99999999999980993,
       676.5203681218851,
@@ -34,19 +35,29 @@ export class Misc {
     ];
     const g = 7;
     if (n < 0.5) {
-      return Math.PI / Math.sin(Math.PI * n) * this.gamma(1 - n);
+      return new Decimal(Math.PI / Math.sin(Math.PI * n)).mul(Misc.gamma(1 - n));
+      // return Math.PI / Math.sin(Math.PI * n) * this.gamma(1 - n);
     }
     n -= 1;
     const t = n + g + 0.5;
-    const a = p.reduce((acc, currentValue, index) => acc + currentValue / (n + index));
-    return Math.sqrt(2 * Math.PI) * Math.pow(t, n + 0.5) * Math.exp(-t) * a;
+    let a = p[0];
+    for (let i = 1; i < p.length; i++) {
+      a += p[i] / (n + i);
+    }
+
+    const powN = new Decimal(t).pow(n + 0.5);
+    const powE = new Decimal(Math.E).pow(-t);
+
+    return new Decimal(Math.sqrt(2 * Math.PI)).mul(powN).mul(powE).mul(a);
+    // return Math.sqrt(2 * Math.PI) * Math.pow(t, n + 0.5) * Math.exp(-t) * a;
   }
 
   /**
    * beta function
    */
   static beta(x: number, y: number): number {
-    return Misc.gamma(x) * Misc.gamma(y) / Misc.gamma(x + y);
+    // return Misc.gamma(x) * Misc.gamma(y) / Misc.gamma(x + y);
+    return Misc.gamma(x).mul(Misc.gamma(y)).div(Misc.gamma(x + y)).toNumber();
   }
 
   /**
